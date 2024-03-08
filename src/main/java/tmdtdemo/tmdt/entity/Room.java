@@ -25,6 +25,10 @@ public class Room {
     @Column(name = "type_of_room")
     private String type;
 
+    @Column(name = "item_of_room")
+    private String item;
+
+
     private String description;
 
     private String conditions;

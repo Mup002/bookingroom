@@ -16,6 +16,9 @@ public class Room {
     @Column(name = "id_room")
     private Long id;
 
+    @Column(name = "name_of_room")
+    private String name;
+
     @Column(name = "number_of_room")
     private Long number;
 

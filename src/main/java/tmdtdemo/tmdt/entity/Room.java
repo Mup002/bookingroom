@@ -26,4 +26,8 @@ public class Room {
 
     private String conditions;
 
+    private boolean available;
+
+    private Long remainRoom;
+
 }

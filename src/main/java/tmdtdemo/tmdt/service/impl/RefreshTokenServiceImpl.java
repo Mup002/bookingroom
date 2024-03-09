@@ -10,7 +10,7 @@ import tmdtdemo.tmdt.exception.ResourceNotFoundException;
 import tmdtdemo.tmdt.exception.TokenExpirationException;
 import tmdtdemo.tmdt.repository.RefreshTokenRepository;
 import tmdtdemo.tmdt.service.RefreshTokenService;
-import tmdtdemo.tmdt.utils.mapper;
+import tmdtdemo.tmdt.utils.Mapper;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -51,7 +51,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
         if(ObjectUtils.isEmpty(rf)){
             throw new ResourceNotFoundException("RefreshToken dont exists");
         }
-        return mapper.refreshTokenToResponse(rf);
+        return Mapper.refreshTokenToResponse(rf);
     }
 
     @Override

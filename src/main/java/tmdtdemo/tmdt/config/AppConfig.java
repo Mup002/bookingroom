@@ -76,6 +76,7 @@ public class AppConfig {
                 .requestMatchers("/api/v1/account/**").permitAll()
                 .requestMatchers("/test/redis/**").permitAll()
                 .requestMatchers("/test/token/**").permitAll()
+                .requestMatchers("/api/v1/room/**").permitAll()
                 .requestMatchers("/api/v1/user/**").hasAnyAuthority("USER")
                 .requestMatchers("/api/v1/admin/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()

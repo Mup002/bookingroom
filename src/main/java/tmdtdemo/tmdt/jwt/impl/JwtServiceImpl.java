@@ -8,16 +8,12 @@ import io.jsonwebtoken.security.SignatureException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import tmdtdemo.tmdt.auth.UserDetailsCustom;
-import tmdtdemo.tmdt.config.filter.CustomAuthenticationProvider;
 import tmdtdemo.tmdt.dto.request.RenewTokenRequest;
 import tmdtdemo.tmdt.dto.response.RefreshTokenResponse;
 import tmdtdemo.tmdt.dto.response.RenewTokenResponse;
@@ -27,13 +23,12 @@ import tmdtdemo.tmdt.exception.BaseException;
 import tmdtdemo.tmdt.exception.ResourceNotFoundException;
 import tmdtdemo.tmdt.jwt.JwtConfig;
 import tmdtdemo.tmdt.jwt.JwtService;
-import tmdtdemo.tmdt.repository.UserRepository;
 import tmdtdemo.tmdt.service.BaseRedisService;
 import tmdtdemo.tmdt.service.RefreshTokenService;
 import tmdtdemo.tmdt.service.UserService;
 import tmdtdemo.tmdt.utils.DateFormat;
 import tmdtdemo.tmdt.utils.HelperUtils;
-import tmdtdemo.tmdt.utils.mapper;
+import tmdtdemo.tmdt.utils.Mapper;
 
 import java.security.Key;
 import java.time.Instant;
@@ -117,7 +112,7 @@ public class JwtServiceImpl  implements JwtService {
         rf.setUser(userService.findUserByUsername(userDetailsCustom.getUsername()));
         refreshTokenService.savedRefreshToken(rf);
         log.info("created new refreshToken done");
-        return mapper.refreshTokenToResponse(rf);
+        return Mapper.refreshTokenToResponse(rf);
     }
 
     @Override

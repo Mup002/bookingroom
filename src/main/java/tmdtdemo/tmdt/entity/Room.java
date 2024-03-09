@@ -28,7 +28,6 @@ public class Room {
     @Column(name = "item_of_room")
     private String item;
 
-
     private String description;
 
     private String conditions;
